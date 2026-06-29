@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0A2540;
+  --accent: #F97316;
+  --accent-dark: #EA580C;
+  --light: #F8FAFC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Professional Professional Industrial Style */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Animated Navbar */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(to right, #F97316, #EA580C);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover:after, .nav-link.active:after {
+  width: 100%;
+}
+
+/* Animated Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  height: 2.5px;
+  width: 100%;
+  background-color: #0A2540;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Hero Carousel */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1), transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.04);
+}
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Service Cards Animation */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s;
+}
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Area Cards */
+.area-card {
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.area-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: #F97316;
+}
+
+/* Animated Button */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transition: 0.5s;
+}
+.btn-primary:hover::after {
+  left: 250%;
+}
+
+/* Gallery Lightbox */
+.lightbox {
+  animation: fadeIn 0.2s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Testimonials */
+.testimonial {
+  transition: all 0.5s ease;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Enquiry Response Animation */
+.enquiry-response {
+  animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Stats Counter */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* SEO friendly headings */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  animation: slideDown 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel Controls */
+.carousel-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-btn:hover {
+  background-color: #F97316;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Professional Form Styles */
+.form-input {
+  transition: all 0.2s ease;
+}
+.form-input:focus {
+  border-color: #F97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  outline: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.35rem;
+    line-height: 1.05;
+  }
+}
